@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Menu Interactif</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #ccc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    h1 {
+      color: #00fff7;
+      margin-bottom: 10px;
+      font-size: 60px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 130px;
+    }
+
+    .card {
+      width: 200px;
+      height: 200px;
+      background-color: #0000006e;
+      border: 2px solid #ffffff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #ffffff;
+    }
+
+    .card:active {
+      transform: translateY(2px) scale(0.98);
+      box-shadow: 0 0 5px #00fff7;
+    }
+
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.5);
+    }
+
+    /* Pied de page */
+    footer {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      font-size: 12px;
+      color: #ccc;
+      z-index: 2;
+    }
+
+    .footer-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+    }
+
+    .footer-right img {
+      height: 30px;
+    }
+    .footer-left,
+.footer-center,
+.footer-right {
+  position: fixed;
+  bottom: 10px;
+  font-size: 12px;
+  color: #fff;
+  z-index: 10;
+}
+
+.footer-left {
+  left: 10px;
+}
+
+.footer-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-right {
+  right: 10px;
+}
+
+.footer-right img {
+  width: 69px;
+  height: auto;
+  cursor: pointer;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
+.container {
+  padding-top: 10vh;
+}
+
+.glitch {
+  font-size: 10rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  color: #fff;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+  color: rgb(0, 0, 0);
+  animation: glitchTop 0.6s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: rgb(255, 0, 0);
+  animation: glitchBottom 0.6s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0);
+  }
+  20% {
+    clip: rect(0, 9999px, 80px, 0);
+    transform: translate(-5px, -5px);
+  }
+  40% {
+    clip: rect(0, 9999px, 100px, 0);
+    transform: translate(5px, -2px);
+  }
+  60% {
+    clip: rect(0, 9999px, 90px, 0);
+    transform: translate(-3px, 2px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0);
+  }
+}
+
+@keyframes glitchBottom {
+  0% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0);
+  }
+  20% {
+    clip: rect(85px, 9999px, 9999px, 0);
+    transform: translate(5px, 3px);
+  }
+  40% {
+    clip: rect(100px, 9999px, 9999px, 0);
+    transform: translate(-5px, 2px);
+  }
+  60% {
+    clip: rect(90px, 9999px, 9999px, 0);
+    transform: translate(3px, -2px);
+  }
+  100% {
+    clip: rect(0, 9999px, 0, 0);
+    transform: translate(0);
+  }
+}
+
+.message {
+  font-size: 1.5rem;
+  color: #000;
+  margin-top: -30px;
+}
+  </style>
+</head>
+<body>
+
+  <h1>LDU Dataviz Challenge 2025</h1>
+
+  <div class="cards">
+    <a class="card" href="SiteWEB/DATAVIZChômage.html">Le Chômage en Nouvelle-Calédonie</a>
+    <a class="card" href="SiteWEB/page2.html"br>MANGE A MOI</a>
+    <a class="card" href="SiteWEB/page3.html">Page 3<br>Données</a>
+  </div>
+
+  <video autoplay muted loop id="background-video">
+    <source src="SiteWEB/vidNC.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo HTML5.
+  </video>
+
+  <footer>
+    <div class="footer-left">© BTS SIO 2025</div>
+    <div class="footer-center">Silas SOUOLOU Matis ALIBAUD Fabrice GOVAN</div>
+    <div class="footer-right">
+  <a href="https://weblgn.ac-noumea.nc/" target="_blank">
+    <img src="SiteWEB/ldu.jpg" alt="Logo">
+  </a>
+</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 Glitch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="glitch" data-text="404">404</h1>
+    <p class="message">PAGE NOT FOUND</p>
+  </div>
+</body>
+</html>
+
+</body>
+</html>
 
